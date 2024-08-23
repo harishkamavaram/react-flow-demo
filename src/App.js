@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Background, Controls, MiniMap, NodeToolbar, Panel, ReactFlow } from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
+import "./App.css";
+
+const nodes = [
+  {
+    id: '1',
+    position: { x: 300, y: 250 },
+    data: { label: 'Hello' },
+  },
+  {
+    id: '2',
+    position: { x: 30, y: 250 },
+    data: { label: 'Two' },
+  },
+  {
+    id: '3',
+    position: { x: 300, y: 25 },
+    data: { label: 'Three' },
+  },
+];
+const styles = {
+  background: 'black',
+ 
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ height: '100%' }}>
+      <ReactFlow nodes={nodes} >
+        <Background />
+        <Controls />
+        <MiniMap />
+        <Panel />
+        <NodeToolbar />
+      </ReactFlow>
     </div>
+    
   );
 }
 
